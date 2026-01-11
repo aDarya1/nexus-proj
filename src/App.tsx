@@ -16,6 +16,8 @@ import { TopicGroups } from './components/nexus/TopicGroups';
 import { ConferenceCalendar } from './components/nexus/ConferenceCalendar';
 import { CollaboratorSearch } from './components/nexus/CollaboratorSearch';
 import { Footer } from './components/nexus/Footer';
+import { MobileApp } from './components/nexus/MobileApp';
+import { useIsMobile } from './hooks/useDeviceType';
 
 export type Screen = 'home' | 'search' | 'library' | 'notifications' | 'profile' | 'article-detail' | 'downloads' | 'groups' | 'calendar' | 'collaborators';
 
@@ -56,6 +58,7 @@ export default function App() {
 }
 
 function AppContent() {
+  const isMobile = useIsMobile();
   const [currentScreen, setCurrentScreen] = useState<Screen>('home');
   const [showPublishModal, setShowPublishModal] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
@@ -136,6 +139,31 @@ function AppContent() {
     };
   }, []);
 
+  // Render different versions based on device type
+  if (isMobile) {
+    return (
+      <MobileApp
+        currentScreen={currentScreen}
+        setCurrentScreen={setCurrentScreen}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        selectedArticle={selectedArticle}
+        setSelectedArticle={setSelectedArticle}
+        newArticles={newArticles}
+        setNewArticles={setNewArticles}
+        downloadedArticles={downloadedArticles}
+        setDownloadedArticles={setDownloadedArticles}
+        showPublishModal={showPublishModal}
+        setShowPublishModal={setShowPublishModal}
+        handleSearch={handleSearch}
+        handleDownload={handleDownload}
+        handleArticleClick={handleArticleClick}
+        handlePublish={handlePublish}
+      />
+    );
+  }
+
+  // Desktop version - original layout
   return (
     <div className="min-h-screen flex flex-col transition-colors duration-300" style={{ backgroundColor: 'var(--bg)' }}>
       <Header 
