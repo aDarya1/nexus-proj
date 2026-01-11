@@ -141,6 +141,8 @@ function AppContent() {
       <Header 
         onPublish={() => setShowPublishModal(true)}
         onSearch={handleSearch}
+        currentScreen={currentScreen}
+        onNavigate={setCurrentScreen}
       />
       
       <div className="flex flex-1">
@@ -149,7 +151,7 @@ function AppContent() {
           onNavigate={setCurrentScreen}
         />
         
-        <main className="flex-1 ml-64 pt-20 flex flex-col">
+        <main className="flex-1 ml-0 md:ml-64 pt-16 md:pt-20 flex flex-col">
           {currentScreen === 'home' && (
             <HomeFeed 
               newArticles={newArticles}
@@ -213,7 +215,7 @@ function AppContent() {
         </main>
       </div>
 
-      <div className="ml-64">
+      <div className="ml-0 md:ml-64">
         <Footer />
       </div>
 
