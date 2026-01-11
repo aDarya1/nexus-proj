@@ -1,11 +1,45 @@
+# Nexus - Scientific Research Platform
 
-  # AcademiaLink Main Page Design
+A modern, Facebook-like platform for scientists to share research, collaborate, and discover new publications.
 
-  This is a code bundle for AcademiaLink Main Page Design. The original project is available at https://www.figma.com/design/mBgc6Wc6lydEivnWbkCXgc/AcademiaLink-Main-Page-Design.
+## Features
 
-  ## Running the code
+- 🔐 User authentication (login/registration)
+- 🔍 Advanced article search with filters
+- 📰 News feed with latest research articles
+- 👥 Follow other scientists
+- ❤️ Likes and comments on articles
+- 🔔 Notifications system
+- 📚 Saved articles library
+- 👥 Scientific topic groups
+- 📅 Conference and event calendar
+- 🔗 Collaborator search
+- 🎨 Dark/Light theme support
+- ♿ Accessibility features
 
-  Run `npm i` to install the dependencies.
+## Tech Stack
 
-  Run `npm run dev` to start the development server.
-  
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- Radix UI components
+
+## Running the code
+
+Run `npm i` to install the dependencies.
+
+Run `npm run dev` to start the development server.
+
+## Deployment
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for GitHub Pages deployment instructions.
+
+## Authors
+
+- Ruslan Biedychev (nr. albumu 82179)
+- Darya Atroshchyk (nr. albumu 81829)
+- Dzmitry Varonin (nr. albumu 81138)
+- Tomasz Pestka
+
+UWSB Merito Gdańsk - 2026
