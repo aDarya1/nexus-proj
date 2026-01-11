@@ -89,9 +89,9 @@ export function Header({ onPublish, onSearch, currentScreen, onNavigate }: Heade
 
   return (
     <>
-      {/* Desktop Header - Original version */}
-      <header className="hidden md:flex fixed top-0 left-0 right-0 z-50 border-b transition-colors duration-300" style={{ backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }}>
-        <div className="flex items-center justify-between px-6 py-4 w-full">
+      {/* Desktop Header - Original version, always visible on desktop */}
+      <header className="hidden md:block fixed top-0 left-0 right-0 z-50 border-b transition-colors duration-300" style={{ backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }}>
+        <div className="flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, var(--primary), var(--secondary))' }}>
