@@ -6,6 +6,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useNotifications } from '../../contexts/NotificationContext';
 import { AuthModal } from './AuthModal';
 import { NotificationsPanel } from './NotificationsPanel';
+import { DateTimeDisplay } from './DateTimeDisplay';
 
 interface HeaderProps {
   onPublish: () => void;
@@ -84,6 +85,11 @@ export function Header({ onPublish, onSearch }: HeaderProps) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b transition-colors duration-300" style={{ backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }}>
+      {/* Date and Time Bar */}
+      <div className="flex items-center justify-center px-4 py-1.5 border-b" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg)' }}>
+        <DateTimeDisplay />
+      </div>
+      
       <div className="flex items-center justify-between px-6 py-4">
           {/* Logo */}
           <div className="flex items-center gap-3">
