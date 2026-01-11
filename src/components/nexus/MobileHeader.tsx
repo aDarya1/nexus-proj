@@ -39,11 +39,6 @@ export function MobileHeader({ onMenuClick, onSearch }: MobileHeaderProps) {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 border-b transition-colors duration-300" style={{ backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }}>
-        {/* Date and Time Bar */}
-        <div className="flex items-center justify-center px-2 py-1 border-b" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg)' }}>
-          <DateTimeDisplay />
-        </div>
-        
         <div className="flex items-center justify-between px-3 py-3 gap-2">
           {/* Menu Button */}
           <button
@@ -74,6 +69,11 @@ export function MobileHeader({ onMenuClick, onSearch }: MobileHeaderProps) {
           >
             <Search className="w-6 h-6" />
           </button>
+
+          {/* Date and Time */}
+          <div className="flex items-center flex-shrink-0">
+            <DateTimeDisplay />
+          </div>
 
           {/* Actions */}
           <div className="flex items-center gap-2 flex-shrink-0">

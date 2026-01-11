@@ -63,7 +63,7 @@ export function MobileApp({
         onNavigate={setCurrentScreen}
       />
 
-      <main className="flex-1 pt-20 md:pt-24 flex flex-col w-full overflow-x-hidden">
+      <main className="flex-1 pt-14 md:pt-16 flex flex-col w-full overflow-x-hidden">
         {currentScreen === 'home' && (
           <HomeFeed 
             newArticles={newArticles}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Clock, Calendar } from 'lucide-react';
+import { Clock } from 'lucide-react';
 
 interface DateTimeData {
   datetime: string;
@@ -91,36 +91,36 @@ export function DateTimeDisplay() {
   const dateString = formatDate(dateTime?.datetime || null);
 
   return (
-    <div className="flex items-center gap-2 md:gap-3 px-2 md:px-3 py-1.5 md:py-2 rounded-lg border transition-all" 
+    <div className="flex items-center gap-1.5 md:gap-2 px-2 md:px-2.5 py-1 md:py-1.5 rounded-lg border transition-all" 
          style={{ 
            backgroundColor: 'var(--hover)', 
            borderColor: 'var(--border)' 
          }}>
-      {/* Calendar Icon */}
-      <Calendar className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" style={{ color: 'var(--primary)' }} />
+      {/* Clock Icon */}
+      <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 flex-shrink-0" style={{ color: 'var(--primary)' }} />
       
-      {/* Date and Time */}
-      <div className="flex flex-col md:flex-row md:items-center md:gap-2">
-        <div className="flex items-center gap-1.5 md:gap-2">
-          <Clock className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" style={{ color: 'var(--primary)' }} />
-          <span 
-            className="text-xs md:text-sm font-mono font-semibold whitespace-nowrap" 
-            style={{ color: 'var(--text-primary)' }}
-          >
-            {isLoading ? '--:--:--' : timeString}
-          </span>
-        </div>
+      {/* Time and Date */}
+      <div className="flex items-center gap-1.5 md:gap-2">
+        <span 
+          className="text-xs md:text-sm font-mono font-semibold whitespace-nowrap" 
+          style={{ color: 'var(--text-primary)' }}
+        >
+          {isLoading ? '--:--:--' : timeString}
+        </span>
         <span 
           className="text-[10px] md:text-xs font-medium hidden md:inline whitespace-nowrap" 
           style={{ color: 'var(--text-secondary)' }}
         >
-          {isLoading ? 'Loading...' : dateString}
+          {isLoading ? '...' : new Date(dateTime?.datetime || localTime).toLocaleDateString('en-US', { 
+            month: 'short', 
+            day: 'numeric' 
+          })}
         </span>
         <span 
-          className="text-[10px] md:text-xs font-medium md:hidden whitespace-nowrap" 
+          className="text-[10px] font-medium md:hidden whitespace-nowrap" 
           style={{ color: 'var(--text-secondary)' }}
         >
-          {isLoading ? 'Loading...' : new Date(dateTime?.datetime || localTime).toLocaleDateString('en-US', { 
+          {isLoading ? '...' : new Date(dateTime?.datetime || localTime).toLocaleDateString('en-US', { 
             month: 'short', 
             day: 'numeric' 
           })}

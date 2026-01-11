@@ -177,7 +177,7 @@ function AppContent() {
           onNavigate={setCurrentScreen}
         />
         
-        <main className="flex-1 ml-64 pt-28 flex flex-col">
+        <main className="flex-1 ml-64 pt-20 flex flex-col">
           {currentScreen === 'home' && (
             <HomeFeed 
               newArticles={newArticles}
