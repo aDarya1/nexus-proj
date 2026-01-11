@@ -85,21 +85,21 @@ export function Header({ onPublish, onSearch }: HeaderProps) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b transition-colors duration-300" style={{ backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }}>
       <div className="flex items-center justify-between px-6 py-4">
-        {/* Logo */}
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, var(--primary), var(--secondary))' }}>
-            <span className="text-xl font-bold text-white">N</span>
+          {/* Logo */}
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, var(--primary), var(--secondary))' }}>
+              <span className="text-lg font-bold text-white">N</span>
+            </div>
+            <h1 className="text-xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent">
+              NEXUS
+            </h1>
           </div>
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent">
-            NEXUS
-          </h1>
-        </div>
 
         {/* Search Bar */}
         <form onSubmit={handleSearch} className="flex-1 max-w-2xl mx-8">
           <div className="relative group">
             <Search 
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 z-10 pointer-events-none group-focus-within:text-[var(--primary)] transition-colors" 
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 z-10 pointer-events-none group-focus-within:text-[var(--primary)] transition-colors" 
               style={{ color: 'var(--text-secondary)' }} 
             />
             <input
@@ -125,7 +125,7 @@ export function Header({ onPublish, onSearch }: HeaderProps) {
                 title="Wyczyść wyszukiwanie"
                 aria-label="Wyczyść wyszukiwanie"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4" />
               </button>
             )}
             <button
@@ -140,7 +140,7 @@ export function Header({ onPublish, onSearch }: HeaderProps) {
               title="Voice search"
               aria-label="Voice search"
             >
-              <Mic className="w-5 h-5" />
+              <Mic className="w-4 h-4" />
             </button>
 
             {/* Autocomplete Suggestions */}
@@ -229,14 +229,18 @@ export function Header({ onPublish, onSearch }: HeaderProps) {
                 color: 'white'
               }}
             >
-              <Plus className="w-5 h-5" />
+              <Plus className="w-4 h-4" />
               <span>PUBLISH</span>
             </button>
           )}
 
-          <ThemeToggle />
+          <div className="flex items-center">
+            <ThemeToggle />
+          </div>
 
-          <AccessibilitySettings />
+          <div className="flex items-center">
+            <AccessibilitySettings />
+          </div>
 
           {isAuthenticated && (
             <>
@@ -248,10 +252,10 @@ export function Header({ onPublish, onSearch }: HeaderProps) {
                   title="Powiadomienia"
                   aria-label="Powiadomienia"
                 >
-                  <Bell className="w-6 h-6" />
+                  <Bell className="w-5 h-5" />
                   {unreadCount > 0 && (
                     <span 
-                      className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold"
+                      className="absolute -top-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center text-xs font-bold"
                       style={{
                         backgroundColor: 'var(--like)',
                         color: 'white',
@@ -275,7 +279,7 @@ export function Header({ onPublish, onSearch }: HeaderProps) {
                 </div>
                 <div className="relative" ref={userMenuRef}>
                   <div
-                    className="w-10 h-10 rounded-full overflow-hidden border-2 cursor-pointer hover:scale-110 transition-transform"
+                    className="w-8 h-8 rounded-full overflow-hidden border-2 cursor-pointer hover:scale-110 transition-transform"
                     style={{ borderColor: 'var(--primary)' }}
                     onClick={() => setShowUserMenu(!showUserMenu)}
                     role="button"
@@ -313,7 +317,7 @@ export function Header({ onPublish, onSearch }: HeaderProps) {
                         className="w-full flex items-center gap-2 px-4 py-2 text-sm transition-colors hover:bg-[var(--hover)]"
                         style={{ color: 'var(--text-primary)' }}
                       >
-                        <LogOut className="w-5 h-5" />
+                        <LogOut className="w-4 h-4" />
                         Wyloguj się
                       </button>
                     </div>
@@ -337,7 +341,7 @@ export function Header({ onPublish, onSearch }: HeaderProps) {
                   color: 'var(--text-primary)',
                 }}
               >
-                <LogIn className="w-6 h-6" />
+                  <LogIn className="w-5 h-5" />
                 <span>Zaloguj</span>
               </button>
               <button
@@ -351,7 +355,7 @@ export function Header({ onPublish, onSearch }: HeaderProps) {
                   color: 'white',
                 }}
               >
-                <User className="w-6 h-6" />
+                  <User className="w-5 h-5" />
                 <span>Rejestracja</span>
               </button>
             </div>

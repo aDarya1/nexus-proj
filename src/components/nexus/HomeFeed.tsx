@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { ArticleCard } from './ArticleCard';
 import { Article } from '../../App';
 import { FileText, TrendingUp } from 'lucide-react';
@@ -11,6 +12,7 @@ interface HomeFeedProps {
 
 export function HomeFeed({ newArticles, onArticleClick, onDownload }: HomeFeedProps) {
   const { theme } = useTheme();
+  const [activeTab, setActiveTab] = useState<'following' | 'trending'>('following');
 
   const defaultArticles: Article[] = [
     {
@@ -220,6 +222,13 @@ export function HomeFeed({ newArticles, onArticleClick, onDownload }: HomeFeedPr
 
   const allArticles = [...newArticles, ...defaultArticles];
 
+  // Filter articles based on active tab
+  const filteredArticles = activeTab === 'trending' 
+    ? allArticles
+        .filter(article => article.badge === 'TRENDING' || article.likes > 1500)
+        .sort((a, b) => b.likes - a.likes)
+    : allArticles;
+
   return (
     <div className="max-w-4xl mx-auto p-4 md:p-8 space-y-4 md:space-y-6">
       <div className="flex items-center justify-between mb-4 md:mb-8">
@@ -231,45 +240,69 @@ export function HomeFeed({ newArticles, onArticleClick, onDownload }: HomeFeedPr
         </div>
         <div className="flex gap-2">
           <button 
+            onClick={() => setActiveTab('following')}
             className="px-4 py-2 border rounded-lg text-sm font-medium transition-all hover:opacity-80"
             style={{
-              backgroundColor: theme === 'light' ? '#EEF2FF' : 'rgba(129, 140, 248, 0.1)',
-              borderColor: 'var(--primary)',
-              color: 'var(--primary)',
+              backgroundColor: activeTab === 'following' 
+                ? (theme === 'light' ? '#EEF2FF' : 'rgba(129, 140, 248, 0.1)')
+                : 'transparent',
+              borderColor: activeTab === 'following' ? 'var(--primary)' : 'var(--border)',
+              color: activeTab === 'following' ? 'var(--primary)' : 'var(--text-secondary)',
             }}
           >
             Following
           </button>
           <button 
-            className="px-4 py-2 border rounded-lg text-sm font-medium transition-all"
+            onClick={() => setActiveTab('trending')}
+            className="px-4 py-2 border rounded-lg text-sm font-medium transition-all flex items-center gap-1"
             style={{
-              backgroundColor: 'transparent',
-              borderColor: 'var(--border)',
-              color: 'var(--text-secondary)',
+              backgroundColor: activeTab === 'trending' 
+                ? (theme === 'light' ? '#FEF3C7' : 'rgba(251, 191, 36, 0.2)')
+                : 'transparent',
+              borderColor: activeTab === 'trending' ? '#F59E0B' : 'var(--border)',
+              color: activeTab === 'trending' ? '#F59E0B' : 'var(--text-secondary)',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--hover)';
-              e.currentTarget.style.color = 'var(--text-primary)';
+              if (activeTab !== 'trending') {
+                e.currentTarget.style.backgroundColor = 'var(--hover)';
+                e.currentTarget.style.color = 'var(--text-primary)';
+              }
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = 'var(--text-secondary)';
+              if (activeTab !== 'trending') {
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.color = 'var(--text-secondary)';
+              }
             }}
           >
-            <TrendingUp className="w-4 h-4 inline mr-1" />
+            <TrendingUp className="w-4 h-4" />
             Trending
           </button>
         </div>
       </div>
 
-      {allArticles.map((article) => (
-        <ArticleCard 
-          key={article.id} 
-          article={article}
-          onArticleClick={onArticleClick}
-          onDownload={onDownload}
-        />
-      ))}
+      {filteredArticles.length > 0 ? (
+        filteredArticles.map((article) => (
+          <ArticleCard 
+            key={article.id} 
+            article={article}
+            onArticleClick={onArticleClick}
+            onDownload={onDownload}
+          />
+        ))
+      ) : (
+        <div className="flex flex-col items-center justify-center py-16 px-4">
+          <div className="w-32 h-32 mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: 'var(--hover)' }}>
+            <TrendingUp className="w-16 h-16" style={{ color: 'var(--text-secondary)' }} />
+          </div>
+          <h3 className="text-xl font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
+            No trending articles yet
+          </h3>
+          <p className="text-sm text-center max-w-md" style={{ color: 'var(--text-secondary)' }}>
+            Check back later for trending research articles in your field
+          </p>
+        </div>
+      )}
     </div>
   );
 }
