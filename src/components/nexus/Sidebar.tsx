@@ -20,9 +20,7 @@ export function Sidebar({ currentScreen, onNavigate }: SidebarProps) {
   ];
 
   return (
-    <>
-      {/* Desktop Sidebar - Always visible, original version */}
-      <aside className="hidden md:block fixed left-0 top-20 h-[calc(100vh-5rem)] w-64 border-r p-6 transition-colors duration-300" style={{ backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }}>
+    <aside className="fixed left-0 top-20 h-[calc(100vh-5rem)] w-64 border-r p-6 transition-colors duration-300" style={{ backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }}>
       <nav className="space-y-2">
         {menuItems.map((item) => {
           const Icon = item.icon;
@@ -81,6 +79,5 @@ export function Sidebar({ currentScreen, onNavigate }: SidebarProps) {
         </div>
       </div>
     </aside>
-    </>
   );
 }
