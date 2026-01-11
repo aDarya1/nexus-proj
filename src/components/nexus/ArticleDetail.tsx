@@ -127,7 +127,7 @@ export function ArticleDetail({ article, onBack, onDownload }: ArticleDetailProp
             <img
               src={article.authorAvatar}
               alt={article.authors[0]}
-              className="w-14 h-14 rounded-full border-2 border-[#00eeff]/30"
+              className="w-10 h-10 rounded-full border-2 border-[#00eeff]/30"
             />
             <div>
               <p className="font-medium text-white">
@@ -270,7 +270,7 @@ export function ArticleDetail({ article, onBack, onDownload }: ArticleDetailProp
             <img
               src="https://api.dicebear.com/7.x/avataaars/svg?seed=You"
               alt="You"
-              className="w-10 h-10 rounded-full"
+              className="w-8 h-8 rounded-full"
             />
             <div className="flex-1">
               <textarea
@@ -305,7 +305,7 @@ export function ArticleDetail({ article, onBack, onDownload }: ArticleDetailProp
               <img
                 src={comment.avatar}
                 alt={comment.author}
-                className="w-10 h-10 rounded-full"
+                className="w-8 h-8 rounded-full"
               />
               <div className="flex-1">
                 <div className="bg-[#121212] rounded-lg p-4">

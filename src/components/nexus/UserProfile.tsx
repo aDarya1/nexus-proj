@@ -95,7 +95,7 @@ export function UserProfile({ onArticleClick }: UserProfileProps) {
             <img
               src={profileData.avatar}
               alt="Profile"
-              className="w-24 h-24 rounded-full border-4 border-[#00eeff]/30"
+              className="w-16 h-16 rounded-full border-4 border-[#00eeff]/30"
             />
             <div>
               <h1 className="text-3xl font-bold text-white mb-2">{profileData.name}</h1>
@@ -226,7 +226,7 @@ export function UserProfile({ onArticleClick }: UserProfileProps) {
                         <img
                           src={author.avatar}
                           alt={author.name}
-                          className="w-12 h-12 rounded-full border-2 border-[#00eeff]/30"
+                          className="w-8 h-8 rounded-full border-2 border-[#00eeff]/30"
                         />
                         <div>
                           <h4 className="font-medium text-white">{author.name}</h4>

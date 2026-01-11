@@ -170,7 +170,7 @@ export function EditProfileModal({ isOpen, onClose, onSave, initialData }: EditP
               <img
                 src={avatarPreview}
                 alt="Avatar preview"
-                className="w-24 h-24 rounded-full border-4 border-[#00eeff]/30 object-cover"
+                className="w-16 h-16 rounded-full border-4 border-[#00eeff]/30 object-cover"
               />
               <label className="absolute bottom-0 right-0 p-2 bg-[#00eeff] rounded-full cursor-pointer hover:bg-[#00eeff]/80 transition-colors">
                 <Upload className="w-4 h-4 text-black" />

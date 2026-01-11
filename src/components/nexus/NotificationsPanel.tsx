@@ -174,7 +174,7 @@ export function NotificationsPanel({ onClose, onArticleClick }: NotificationsPan
                 <div className="flex items-start gap-3">
                   {/* Icon */}
                   <div 
-                    className="w-10 h-10 rounded-full flex items-center justify-center text-xl flex-shrink-0"
+                    className="w-8 h-8 rounded-full flex items-center justify-center text-lg flex-shrink-0"
                     style={{
                       backgroundColor: `${getNotificationColor(notification.type)}20`,
                     }}
@@ -207,7 +207,7 @@ export function NotificationsPanel({ onClose, onArticleClick }: NotificationsPan
                           <img
                             src={notification.authorAvatar}
                             alt={notification.authorName}
-                            className="w-6 h-6 rounded-full"
+                            className="w-5 h-5 rounded-full"
                           />
                         )}
                         <span className="text-xs" style={{ color: 'var(--text-secondary)' }}>

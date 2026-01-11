@@ -189,7 +189,7 @@ export function CollaboratorSearch() {
                 <img
                   src={collab.avatar}
                   alt={collab.name}
-                  className="w-16 h-16 rounded-full border-2"
+                  className="w-12 h-12 rounded-full border-2"
                   style={{ borderColor: colors.primary }}
                 />
                 <div className="flex-1 min-w-0">

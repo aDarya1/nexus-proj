@@ -194,7 +194,7 @@ export function ArticleCard({ article, onArticleClick, onDownload }: ArticleCard
           <img
             src={article.authorAvatar}
             alt={article.authors[0]}
-            className="w-8 h-8 md:w-12 md:h-12 rounded-full border-2"
+            className="w-6 h-6 md:w-8 md:h-8 rounded-full border-2"
             style={{ borderColor: 'var(--primary)' }}
           />
           <div className="flex-1 min-w-0">
