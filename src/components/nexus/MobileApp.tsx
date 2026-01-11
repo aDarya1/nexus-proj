@@ -50,7 +50,7 @@ export function MobileApp({
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col transition-colors duration-300" style={{ backgroundColor: 'var(--bg)' }}>
+    <div className="min-h-screen w-full flex flex-col transition-colors duration-300 overflow-x-hidden" style={{ backgroundColor: 'var(--bg)', width: '100vw', maxWidth: '100%' }}>
       <MobileHeader 
         onMenuClick={() => setShowMobileMenu(true)}
         onSearch={handleSearch}
@@ -63,7 +63,7 @@ export function MobileApp({
         onNavigate={setCurrentScreen}
       />
 
-      <main className="flex-1 pt-16 flex flex-col">
+      <main className="flex-1 pt-14 md:pt-16 flex flex-col w-full overflow-x-hidden">
         {currentScreen === 'home' && (
           <HomeFeed 
             newArticles={newArticles}

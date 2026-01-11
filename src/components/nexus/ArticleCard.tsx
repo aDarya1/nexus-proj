@@ -108,10 +108,10 @@ export function ArticleCard({ article, onArticleClick, onDownload }: ArticleCard
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="flex gap-4 p-4">
+        <div className="flex gap-2 md:gap-4 p-3 md:p-4">
           {/* Small Image Left */}
           {article.imageUrl && (
-            <div className="w-32 h-32 flex-shrink-0 overflow-hidden rounded-lg relative" onClick={() => onArticleClick(article)}>
+            <div className="w-20 h-20 md:w-32 md:h-32 flex-shrink-0 overflow-hidden rounded-lg relative" onClick={() => onArticleClick(article)}>
               <img
                 src={article.imageUrl}
                 alt={article.title}
@@ -189,37 +189,37 @@ export function ArticleCard({ article, onArticleClick, onDownload }: ArticleCard
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Author Info */}
-      <div className="p-6 border-b" style={{ borderColor: 'var(--border)' }}>
-        <div className="flex items-center gap-3">
+      <div className="p-3 md:p-6 border-b" style={{ borderColor: 'var(--border)' }}>
+        <div className="flex items-center gap-2 md:gap-3">
           <img
             src={article.authorAvatar}
             alt={article.authors[0]}
-            className="w-12 h-12 rounded-full border-2"
+            className="w-8 h-8 md:w-12 md:h-12 rounded-full border-2"
             style={{ borderColor: 'var(--primary)' }}
           />
           <div className="flex-1 min-w-0">
-            <h4 className="font-medium" style={{ color: 'var(--text-primary)' }}>
+            <h4 className="text-sm md:text-base font-medium" style={{ color: 'var(--text-primary)' }}>
               {article.authors[0]}
               {article.authors.length > 1 && (
-                <span className="font-normal" style={{ color: 'var(--text-secondary)' }}>
+                <span className="font-normal text-xs md:text-sm" style={{ color: 'var(--text-secondary)' }}>
                   {' '}and {article.authors.length - 1} others
                 </span>
               )}
             </h4>
-            <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>{article.time}</p>
+            <p className="text-xs md:text-sm" style={{ color: 'var(--text-secondary)' }}>{article.time}</p>
           </div>
         </div>
       </div>
 
       {/* Article Content */}
-      <div className="p-6" onClick={() => onArticleClick(article)}>
+      <div className="p-3 md:p-6" onClick={() => onArticleClick(article)}>
         {/* Preview Image */}
         {article.imageUrl && (
-          <div className="mb-4 -mx-6 -mt-6 overflow-hidden relative">
+          <div className="mb-3 md:mb-4 -mx-3 md:-mx-6 -mt-3 md:-mt-6 overflow-hidden relative">
             <img
               src={article.imageUrl}
               alt={article.title}
-              className={`w-full h-48 object-cover transition-transform duration-300 ${
+              className={`w-full h-32 md:h-48 object-cover transition-transform duration-300 ${
                 isHovered ? 'scale-105' : 'scale-100'
               }`}
             />
@@ -249,24 +249,24 @@ export function ArticleCard({ article, onArticleClick, onDownload }: ArticleCard
 
         {/* Title */}
         <h2 
-          className="text-xl font-bold mb-3 leading-tight transition-colors"
+          className="text-base md:text-xl font-bold mb-2 md:mb-3 leading-tight transition-colors"
           style={{ color: isHovered ? 'var(--primary)' : 'var(--text-primary)' }}
         >
           {article.title}
         </h2>
 
         {/* Abstract */}
-        <p className="text-sm leading-relaxed mb-4 line-clamp-3" style={{ color: theme === 'light' ? '#4B5563' : '#9CA3AF' }}>
+        <p className="text-xs md:text-sm leading-relaxed mb-3 md:mb-4 line-clamp-2 md:line-clamp-3" style={{ color: theme === 'light' ? '#4B5563' : '#9CA3AF' }}>
           {article.abstract}
         </p>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-4">
           {article.tags.map((tag, index) => (
             <span
               key={index}
               onClick={(e) => handleTagClick(e, tag)}
-              className="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full transition-all cursor-pointer hover:opacity-80"
+              className="inline-flex items-center px-2 md:px-3 py-0.5 md:py-1 text-xs font-medium rounded-full transition-all cursor-pointer hover:opacity-80"
               style={tagStyles}
             >
               {tag}
@@ -289,12 +289,12 @@ export function ArticleCard({ article, onArticleClick, onDownload }: ArticleCard
       </div>
 
       {/* Actions */}
-      <div className="px-6 py-4 border-t" style={{ backgroundColor: 'var(--hover)', borderColor: 'var(--border)' }}>
+      <div className="px-3 md:px-6 py-2 md:py-4 border-t" style={{ backgroundColor: 'var(--hover)', borderColor: 'var(--border)' }}>
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 md:gap-2">
             <button
               onClick={handleLike}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 ${
+              className={`flex items-center gap-1 md:gap-2 px-2 md:px-4 py-1.5 md:py-2 rounded-lg transition-all duration-200 ${
                 liked ? 'shadow-md' : ''
               }`}
               style={{
@@ -302,8 +302,8 @@ export function ArticleCard({ article, onArticleClick, onDownload }: ArticleCard
                 color: liked ? 'var(--like)' : 'var(--text-secondary)',
               }}
             >
-              <Heart className={`w-5 h-5 ${liked ? 'fill-current' : ''}`} />
-              <span className="text-sm font-medium">{likesCount}</span>
+              <Heart className={`w-4 h-4 md:w-5 md:h-5 ${liked ? 'fill-current' : ''}`} />
+              <span className="text-xs md:text-sm font-medium">{likesCount}</span>
             </button>
 
             <button 
@@ -311,31 +311,31 @@ export function ArticleCard({ article, onArticleClick, onDownload }: ArticleCard
                 e.stopPropagation();
                 onArticleClick(article);
               }}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg transition-all hover:opacity-80"
+              className="flex items-center gap-1 md:gap-2 px-2 md:px-4 py-1.5 md:py-2 rounded-lg transition-all hover:opacity-80"
               style={{ color: 'var(--text-secondary)' }}
             >
-              <MessageCircle className="w-5 h-5" />
-              <span className="text-sm font-medium">{article.comments}</span>
+              <MessageCircle className="w-4 h-4 md:w-5 md:h-5" />
+              <span className="text-xs md:text-sm font-medium">{article.comments}</span>
             </button>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 md:gap-2">
             <button
               onClick={handleSave}
-              className={`p-2 rounded-lg transition-all duration-200 ${saved ? 'shadow-md' : ''}`}
+              className={`p-1.5 md:p-2 rounded-lg transition-all duration-200 ${saved ? 'shadow-md' : ''}`}
               style={{
                 backgroundColor: saved ? (theme === 'light' ? '#D1FAE5' : 'rgba(52, 211, 153, 0.2)') : 'transparent',
                 color: saved ? 'var(--save)' : 'var(--text-secondary)',
               }}
               title="Save"
             >
-              <Bookmark className={`w-5 h-5 ${saved ? 'fill-current' : ''}`} />
+              <Bookmark className={`w-4 h-4 md:w-5 md:h-5 ${saved ? 'fill-current' : ''}`} />
             </button>
 
             <button
               onClick={handleDownload}
               disabled={downloadState === 'downloading'}
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-200 ${
+              className={`flex items-center gap-1 md:gap-2 px-2 md:px-3 py-1.5 md:py-2 rounded-lg transition-all duration-200 ${
                 downloadState === 'downloaded' ? 'shadow-md' : ''
               }`}
               style={{
@@ -357,18 +357,18 @@ export function ArticleCard({ article, onArticleClick, onDownload }: ArticleCard
             >
               {downloadState === 'downloading' ? (
                 <>
-                  <div className="w-4 h-4 border-2 rounded-full animate-spin" style={{ borderColor: 'var(--download)', borderTopColor: 'transparent' }} />
-                  <span className="text-xs font-medium">DOWNLOADING...</span>
+                  <div className="w-3 h-3 md:w-4 md:h-4 border-2 rounded-full animate-spin" style={{ borderColor: 'var(--download)', borderTopColor: 'transparent' }} />
+                  <span className="text-xs font-medium hidden sm:inline">DOWNLOADING...</span>
                 </>
               ) : downloadState === 'downloaded' ? (
                 <>
-                  <Check className="w-4 h-4" />
-                  <span className="text-xs font-medium">DOWNLOADED</span>
+                  <Check className="w-3 h-3 md:w-4 md:h-4" />
+                  <span className="text-xs font-medium hidden sm:inline">DOWNLOADED</span>
                 </>
               ) : (
                 <>
-                  <Download className="w-4 h-4" />
-                  <span className="text-xs font-medium">DOWNLOAD</span>
+                  <Download className="w-3 h-3 md:w-4 md:h-4" />
+                  <span className="text-xs font-medium hidden sm:inline">DOWNLOAD</span>
                 </>
               )}
             </button>
@@ -376,11 +376,11 @@ export function ArticleCard({ article, onArticleClick, onDownload }: ArticleCard
             <div className="relative">
               <button
                 onClick={handleShare}
-                className="p-2 rounded-lg transition-all hover:opacity-80"
+                className="p-1.5 md:p-2 rounded-lg transition-all hover:opacity-80"
                 style={{ color: 'var(--text-secondary)' }}
                 title="Share"
               >
-                <Share2 className="w-5 h-5" />
+                <Share2 className="w-4 h-4 md:w-5 md:h-5" />
               </button>
               {showCopied && (
                 <div 
