@@ -29,6 +29,6 @@ Modele Clauda:
 Kolejne widoki podstrony mają być spójne ze sobą.
 
 
-wszyskie zrobione todo pisz do todo_done.txt
+wszyskie zrobione todo pisz do todo_done.md
 
 obowiazkowo po kazdym pukcie preszytaj todo oraz workflow ponownie, aby nic nie zapomnic

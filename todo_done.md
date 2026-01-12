@@ -1,18 +1,18 @@
-Fix and improve the scientific articles search functionality
+## Fix and improve the scientific articles search functionality
 - Dodano filtrowanie po tytule i autorze (opcja "Szukaj w")
 - Ulepszono obsługę błędów z wyświetlaniem komunikatów
 - Dodano lepsze stany pustych wyników z sugestiami
 - Dodano sortowanie po trafności, dacie i cytowaniach
 - Zaktualizowano SearchDatabase.ts z lepszym filtrowaniem
 
-Add the ability to download articles to a local device
+## Add the ability to download articles to a local device
 - Utworzono utils/downloadArticle.ts z funkcjami pobierania PDF, BibTeX i RIS
 - Zaimplementowano pobieranie artykułów jako PDF (placeholder dla backendu)
 - Dodano obsługę błędów podczas pobierania
 - Zintegrowano pobieranie z ArticleDetail i ArticleCard
 - Dodano sanityzację nazw plików
 
-Implement an accessibility mode for users with disabilities
+## Implement an accessibility mode for users with disabilities
 - Rozszerzono ThemeProvider o ustawienia dostępności (high contrast, font size)
 - Utworzono komponent AccessibilitySettings z UI
 - Dodano tryb wysokiego kontrastu zgodny z WCAG AAA
@@ -21,14 +21,14 @@ Implement an accessibility mode for users with disabilities
 - Zintegrowano ustawienia dostępności z Headerem
 - Zapis ustawień w localStorage
 
-Add follow/unfollow functionality for authors
+## Add follow/unfollow functionality for authors
 - Utworzono kontekst FollowContext do zarządzania obserwowanymi autorami
 - Zaimplementowano funkcje follow/unfollow w UserProfile
 - Dodano przyciski follow/unfollow w ArticleDetail
 - Zintegrowano z localStorage (placeholder dla backendu)
 - Dodano wizualne wskaźniki stanu obserwowania
 
-Enable user profile editing
+## Enable user profile editing
 - Utworzono komponent EditProfileModal z pełną walidacją formularza
 - Zaimplementowano edycję: imię, bio, dziedzina, lokalizacja, strona, avatar
 - Dodano walidację URL, rozmiaru pliku, długości tekstu
@@ -36,7 +36,7 @@ Enable user profile editing
 - Zintegrowano z UserProfile
 - Zapis danych w localStorage (placeholder dla backendu)
 
-Add user registration and login for the platform
+## Add user registration and login for the platform
 - Utworzono AuthContext do zarządzania autentykacją użytkownika
 - Zaimplementowano LoginModal i RegisterModal z walidacją
 - Dodano przyciski logowania/rejestracji w Headerze
@@ -44,59 +44,59 @@ Add user registration and login for the platform
 - Dodano menu użytkownika z opcją wylogowania
 - Przycisk PUBLISH widoczny tylko dla zalogowanych użytkowników
 
-Add "X" button to clear search query in search bar
+## Add "X" button to clear search query in search bar
 - Dodano przycisk "X" w pasku wyszukiwania w Headerze
 - Przycisk pojawia się gdy jest tekst w polu wyszukiwania
 - Kliknięcie czyści zapytanie i pokazuje wszystkie artykuły
 
-Implement likes and comments on articles
+## Implement likes and comments on articles
 - Zaimplementowano system polubień w ArticleCard i ArticleDetail
 - Dodano sekcję komentarzy w ArticleDetail z możliwością dodawania komentarzy
 - Komentarze mają polubienia i możliwość odpowiedzi
 - Stan polubień i komentarzy zapisywany lokalnie (placeholder dla backendu)
 
-Add notifications system for new publications in user field
+## Add notifications system for new publications in user field
 - Utworzono NotificationContext do zarządzania powiadomieniami
 - Zaimplementowano NotificationsPanel z listą powiadomień
 - Dodano przycisk powiadomień w Headerze z licznikiem nieprzeczytanych
 - Powiadomienia o nowych publikacjach, komentarzach, polubieniach, obserwowaniach
 - Możliwość oznaczania jako przeczytane i usuwania powiadomień
 
-Create scientific topic groups feature
+## Create scientific topic groups feature
 - Utworzono komponent TopicGroups z listą grup naukowych
 - Dodano możliwość dołączania do grup tematycznych
 - Filtrowanie grup po kategorii i wyszukiwanie
 - Wyświetlanie liczby członków i postów w każdej grupie
 - Oznaczenie grup trending
 
-Enhance saved articles library functionality
+## Enhance saved articles library functionality
 - Utworzono komponent SavedArticlesLibrary z pełną funkcjonalnością
 - Wyświetlanie zapisanych artykułów z możliwością wyszukiwania
 - Filtrowanie po tagach
 - Przełączanie między widokiem listy i siatki
 - Zapis artykułów w localStorage (placeholder dla backendu)
 
-Add ability to share research articles
+## Add ability to share research articles
 - Utworzono ShareModal z opcjami udostępniania
 - Udostępnianie przez Email, Twitter, Facebook, LinkedIn
 - Kopiowanie linku do schowka
 - Zintegrowano z ArticleCard (gotowe do użycia)
 
-Create conference and event calendar
+## Create conference and event calendar
 - Utworzono komponent ConferenceCalendar z listą wydarzeń naukowych
 - Filtrowanie po typie (konferencja, warsztat, sympozjum, webinar) i dziedzinie
 - Wyświetlanie daty, lokalizacji, liczby uczestników
 - Wyszukiwanie wydarzeń
 - Linki do stron wydarzeń
 
-Add collaborator search for research projects
+## Add collaborator search for research projects
 - Utworzono komponent CollaboratorSearch do wyszukiwania współpracowników
 - Filtrowanie po dziedzinie i ekspertyzie
 - Wyświetlanie profilu badacza: publikacje, h-index, instytucja
 - Oznaczenie dostępności do współpracy
 - Możliwość kontaktu z badaczami
 
-Fix icon alignment and improve authentication UI
+## Fix icon alignment and improve authentication UI
 - Połączono logowanie i rejestrację w jeden modal z zakładkami (tabs)
 - Naprawiono wyrównanie ikon - wszystkie ikony mają teraz rozmiar 24x24px (w-6 h-6)
 - Użyto flexbox do poprawnego wyrównania ikon z polami input
@@ -108,7 +108,7 @@ Fix icon alignment and improve authentication UI
 - Wyczyść dane sesji przy wylogowaniu
 - Wszystkie ikony są teraz spójnie wyrównane i mają jednakowy rozmiar
 
-Fix search box alignment bug and add footer
+## Fix search box alignment bug and add footer
 - Naprawiono błąd z paskiem wyszukiwania - usunięto niepotrzebne divy z flex items-center
 - Ikona wyszukiwania używa teraz bezpośrednio pozycjonowania absolute bez dodatkowych kontenerów
 - Tekst w polu wyszukiwania nie jest już pod ikoną
