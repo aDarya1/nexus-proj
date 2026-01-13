@@ -1,4 +1,4 @@
-import { Article } from '../App';
+import type { Article } from "@/shared/types/article";
 
 /**
  * Funkcja do pobierania artykułu jako PDF
@@ -20,13 +20,13 @@ export async function downloadArticleAsPDF(article: Article): Promise<void> {
     // const response = await fetch(`/api/articles/${article.id}/download`);
     // if (!response.ok) throw new Error('Nie udało się pobrać artykułu');
     // const blob = await response.blob();
-    
+
     // Symulacja pobierania - generowanie prostego PDF z danymi artykułu
     // W rzeczywistej implementacji, backend powinien zwrócić plik PDF
     const pdfContent = generatePDFContent(article);
-    const blob = new Blob([pdfContent], { type: 'application/pdf' });
+    const blob = new Blob([pdfContent], { type: "application/pdf" });
     const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = url;
     a.download = `${sanitizeFileName(article.title)}.pdf`;
     document.body.appendChild(a);
@@ -34,8 +34,8 @@ export async function downloadArticleAsPDF(article: Article): Promise<void> {
     document.body.removeChild(a);
     window.URL.revokeObjectURL(url);
   } catch (error) {
-    console.error('Błąd podczas pobierania artykułu:', error);
-    throw new Error('Nie udało się pobrać artykułu. Spróbuj ponownie.');
+    console.error("Błąd podczas pobierania artykułu:", error);
+    throw new Error("Nie udało się pobrać artykułu. Spróbuj ponownie.");
   }
 }
 
@@ -90,15 +90,15 @@ stream
 BT
 /F1 24 Tf
 100 700 Td
-(${article.title.replace(/[^\x20-\x7E]/g, '')}) Tj
+(${article.title.replace(/[^\x20-\x7E]/g, "")}) Tj
 0 -30 Td
 /F2 12 Tf
-(Autorzy: ${article.authors.join(', ').replace(/[^\x20-\x7E]/g, '')}) Tj
+(Autorzy: ${article.authors.join(", ").replace(/[^\x20-\x7E]/g, "")}) Tj
 0 -20 Td
 (DOI: ${article.doi}) Tj
 0 -30 Td
 /Abstract Tj
-${article.abstract.substring(0, 500).replace(/[^\x20-\x7E]/g, '')}
+${article.abstract.substring(0, 500).replace(/[^\x20-\x7E]/g, "")}
 ET
 endstream
 endobj
@@ -126,23 +126,26 @@ startxref
  */
 function sanitizeFileName(fileName: string): string {
   return fileName
-    .replace(/[<>:"/\\|?*]/g, '')
-    .replace(/\s+/g, '_')
+    .replace(/[<>:"/\\|?*]/g, "")
+    .replace(/\s+/g, "_")
     .substring(0, 100);
 }
 
 /**
  * Funkcja pomocnicza do pobierania artykułu w różnych formatach
  */
-export async function downloadArticle(article: Article, format: 'PDF' | 'BibTeX' | 'RIS' = 'PDF'): Promise<void> {
+export async function downloadArticle(
+  article: Article,
+  format: "PDF" | "BibTeX" | "RIS" = "PDF",
+): Promise<void> {
   switch (format) {
-    case 'PDF':
+    case "PDF":
       await downloadArticleAsPDF(article);
       break;
-    case 'BibTeX':
+    case "BibTeX":
       await downloadAsBibTeX(article);
       break;
-    case 'RIS':
+    case "RIS":
       await downloadAsRIS(article);
       break;
     default:
@@ -154,18 +157,18 @@ export async function downloadArticle(article: Article, format: 'PDF' | 'BibTeX'
  * Pobiera artykuł jako plik BibTeX
  */
 async function downloadAsBibTeX(article: Article): Promise<void> {
-  const bibtex = `@article{${article.doi.replace(/[^a-zA-Z0-9]/g, '')},
+  const bibtex = `@article{${article.doi.replace(/[^a-zA-Z0-9]/g, "")},
   title = {${article.title}},
-  author = {${article.authors.join(' and ')}},
+  author = {${article.authors.join(" and ")}},
   journal = {AcademiaLink},
   year = {2024},
   doi = {${article.doi}},
   abstract = {${article.abstract}}
 }`;
 
-  const blob = new Blob([bibtex], { type: 'text/plain' });
+  const blob = new Blob([bibtex], { type: "text/plain" });
   const url = window.URL.createObjectURL(blob);
-  const a = document.createElement('a');
+  const a = document.createElement("a");
   a.href = url;
   a.download = `${sanitizeFileName(article.title)}.bib`;
   document.body.appendChild(a);
@@ -180,15 +183,15 @@ async function downloadAsBibTeX(article: Article): Promise<void> {
 async function downloadAsRIS(article: Article): Promise<void> {
   const ris = `TY  - JOUR
 TI  - ${article.title}
-AU  - ${article.authors.join('\nAU  - ')}
+AU  - ${article.authors.join("\nAU  - ")}
 AB  - ${article.abstract}
 DO  - ${article.doi}
 PY  - 2024
 ER  -`;
 
-  const blob = new Blob([ris], { type: 'text/plain' });
+  const blob = new Blob([ris], { type: "text/plain" });
   const url = window.URL.createObjectURL(blob);
-  const a = document.createElement('a');
+  const a = document.createElement("a");
   a.href = url;
   a.download = `${sanitizeFileName(article.title)}.ris`;
   document.body.appendChild(a);

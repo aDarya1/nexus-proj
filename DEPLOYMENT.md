@@ -39,6 +39,7 @@ After enabling GitHub Pages manually once:
    - Generate token
 
 2. Add the workflow file back:
+
    ```bash
    # The workflow file is already created at .github/workflows/deploy.yml
    git add .github/workflows/deploy.yml
@@ -51,6 +52,7 @@ After enabling GitHub Pages manually once:
 ## 🔧 Build Configuration
 
 The project is configured for GitHub Pages:
+
 - **Base path**: `/nexus-proj/` (set in `vite.config.ts`)
 - **Build output**: `dist/` folder
 - **Build command**: `npm run build`
@@ -76,4 +78,3 @@ npm run preview  # or serve the dist folder
 - **404 errors**: Make sure `base: '/nexus-proj/'` is set in `vite.config.ts`
 - **Assets not loading**: Check that paths are relative, not absolute
 - **Build fails**: Run `npm install` and `npm run build` locally to check for errors
-
