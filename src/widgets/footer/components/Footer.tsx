@@ -5,7 +5,7 @@ export function Footer() {
     { name: "Ruslan Biedychev", album: "82179" },
     { name: "Darya Atroshchyk", album: "81829" },
     { name: "Dzmitry Varonin", album: "81138" },
-    { name: "Tomasz Pestka", album: "" },
+    { name: "Tomasz Pestka", album: "77501" },
   ];
 
   return (

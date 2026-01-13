@@ -40,6 +40,6 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for GitHub Pages deployment instructions.
 - Ruslan Biedychev (nr. albumu 82179)
 - Darya Atroshchyk (nr. albumu 81829)
 - Dzmitry Varonin (nr. albumu 81138)
-- Tomasz Pestka
+- Tomasz Pestka  (nr. albumu 77501)
 
 UWSB Merito Gdańsk - 2026
