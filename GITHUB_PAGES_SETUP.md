@@ -18,6 +18,7 @@ The GitHub Actions workflow has been pushed to your repository. Now you need to 
 ### Step 2: Verify Workflow Permissions
 
 GitHub Pages with Actions requires specific permissions. The workflow file already has them configured:
+
 - `contents: read`
 - `pages: write`
 - `id-token: write`
@@ -25,10 +26,12 @@ GitHub Pages with Actions requires specific permissions. The workflow file alrea
 ### Step 3: Trigger the Workflow
 
 The workflow will automatically run when:
+
 - You push to the `main` branch (already done ✅)
 - You manually trigger it from the Actions tab
 
 To manually trigger:
+
 1. Go to **Actions** tab in your repository
 2. Select **Deploy to GitHub Pages** workflow
 3. Click **Run workflow** → **Run workflow**
@@ -66,21 +69,25 @@ Your site will be available at:
 ## 🐛 Troubleshooting
 
 ### Workflow not running?
+
 - Check if GitHub Pages is enabled with "GitHub Actions" as source
 - Verify you're pushing to the `main` branch
 - Check Actions tab for any errors
 
 ### Build fails?
+
 - Check the Actions log for specific errors
 - Verify `package.json` has correct scripts
 - Ensure all dependencies are listed
 
 ### 404 errors on site?
+
 - Verify `base: '/nexus-proj/'` in `vite.config.ts`
 - Check that the build output is in `dist/` folder
 - Wait a few minutes for DNS propagation
 
 ### Assets not loading?
+
 - Ensure paths in code are relative, not absolute
 - Check browser console for 404 errors
 - Verify base path matches repository name
@@ -95,6 +102,7 @@ Your site will be available at:
 ## 🔄 Future Updates
 
 After initial setup, every time you:
+
 ```bash
 git add .
 git commit -m "Your changes"
@@ -102,9 +110,9 @@ git push
 ```
 
 The workflow will automatically:
+
 - Build your project
 - Deploy to GitHub Pages
 - Update your live site
 
 No manual steps needed! 🚀
-
