@@ -54,7 +54,7 @@ export function AccessibilitySettings() {
           {/* Menu ustawień */}
           <div
             className={cn(
-              "absolute right-0 top-full mt-2 w-80 bg-surface border border-border rounded-lg shadow-lg z-50 p-4 space-y-4",
+              "absolute left-[-160px] sm:right-0 top-full mt-2 w-80 bg-surface border border-border rounded-lg shadow-lg z-50 p-4 space-y-4",
               "bg-card",
             )}
           >

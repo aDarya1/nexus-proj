@@ -134,7 +134,7 @@ export function MobileHeader({ onSearch }: MobileHeaderProps) {
         </div>
 
         {/* Search Bar */}
-        <form onSubmit={handleSearch} className="flex-1 max-w-2xl mx-8">
+        <form onSubmit={handleSearch} className="flex-1 max-w-2xl mx-8 hidden sm:flex">
           <div className="relative group">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 z-10 pointer-events-none text-muted-foreground group-focus-within:text-primary transition-colors" />
             <input
@@ -250,7 +250,7 @@ export function MobileHeader({ onSearch }: MobileHeaderProps) {
         </form>
 
         {/* Date and Time */}
-        <div className="flex items-center mx-4">
+        <div className="items-center mx-4 hidden sm:flex">
           <DateTimeDisplay />
         </div>
 
@@ -270,7 +270,7 @@ export function MobileHeader({ onSearch }: MobileHeaderProps) {
             <AccessibilitySettings />
           </div>
 
-          <div className="flex items-center">
+          <div className="hidden sm:flex items-center">
             <ThemeToggle />
           </div>
 
@@ -352,7 +352,7 @@ export function MobileHeader({ onSearch }: MobileHeaderProps) {
                   setAuthModalTab("register");
                   setShowAuthModal(true);
                 }}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all bg-gradient-to-r from-primary to-secondary text-primary-foreground"
+                className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all bg-gradient-to-r from-primary to-secondary text-primary-foreground"
               >
                 <User className="w-5 h-5" />
                 <span>Rejestracja</span>
